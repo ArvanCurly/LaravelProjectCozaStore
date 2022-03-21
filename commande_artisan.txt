@@ -1,0 +1,8 @@
+php artisan make:model produit --migration
+
+php artisan make:controller TypeyController --resource
+
+
+php artisan make:factory ProduitFactory --model=Produit
+
+php artisan make:request Type
