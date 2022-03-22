@@ -83,7 +83,7 @@
                             <select name="couleur[]" multiple size="3" style="min-width:300px;">
 
                                 @foreach($couleur as $c)
-                                <option value="{{$c}}"  style="background-color:{{$c}}"></option>
+                                <option value="{{$c}}" >{{$c}}</option>
                               @endforeach
                             </select>
                           </div>

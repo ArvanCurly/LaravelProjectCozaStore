@@ -102,7 +102,7 @@
                             <select name="couleur[]" multiple size="3" style="min-width:300px;">
 
                                 @foreach($couleur as $c)
-                                <option value="{{$c}}"  {{ in_array( $c , $produit->couleur) ? 'selected' : '' }} style="background-color:{{$c}}"></option>
+                                <option value="{{$c}}"  {{ in_array( $c , $produit->couleur) ? 'selected' : '' }} >{{$c}}</option>
                               @endforeach
                             </select>
                           </div>
