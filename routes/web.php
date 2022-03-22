@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,12 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('auth.login');
 });
+
+
+
 
 Route::resource('produits',ProduitController::class);
 
@@ -37,3 +41,15 @@ Route::resource('types',TypeController::class);
 
 Route::delete('types/force/{type}', [TypeController::class, 'forceDestroy'])->name('types.force.destroy');
 Route::put('types/restore/{type}', [TypeController::class, 'restore'])->name('types.restore');
+
+
+Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
+

@@ -43,21 +43,28 @@
         </div>
 
           <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-danger">
-                  <strong>Se déconnecter</strong>
-                </a>
-                <a class="button is-light">
-                  Créer un autre compte
-                </a>
+                <div class="navbar-item has-dropdown is-hoverable" style="margin-right:60px;" >
+                    <a class="navbar-link">
+                        @auth
+                        {{ Auth::user()->name }}
+                            @else
+                            Anonyme
+
+                        @endauth
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                      <a class="navbar-item" href="{{route('logout')}}">
+                        se déconnecter
+                      </a>
+                    </div>
+
               </div>
             </div>
           </div>
         </div>
       </nav>
 
-<main class="section">
+<main class="section" style="margin-top:30px;">
     <div class="container">
         @yield('content')
     </div>

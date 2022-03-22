@@ -12,11 +12,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::withTrashed()->oldest('name')->paginate(5);
+        if($request->getSession()->has('name')){
 
-        return view('backend.category.index', compact('categories'));
+            $categories = Category::withTrashed()->oldest('name')->paginate(5);
+
+            return view('backend.category.index', compact('categories'));
+        }else {
+            return redirect()->route('register');
+        }
+
+
     }
 
     /**
