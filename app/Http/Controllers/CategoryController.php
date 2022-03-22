@@ -60,7 +60,7 @@ class CategoryController extends Controller
             foreach($request->file('files') as $file){
 
                 $imageName = $request->name.'-image-'.time().rand(1,1000).'.'.$file->extension();
-                $file->move(public_path('upload_type_img'), $imageName);
+                $file->move(public_path('upload_category_img'), $imageName);
                 array_push($imageNames,$imageName);
             }
              $category->image = $imageNames;

@@ -75,140 +75,72 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
+                </div>
+            </div>
+        </div>
 
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-95 p-b-55">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-04.jpg" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Women
-								</span>
+                @foreach ($categories as $category)
 
-								<span class="block1-info stext-102 trans-04">
-									New Trend
-								</span>
-							</div>
+                    <div class="col-md-6 p-b-30 m-lr-auto">
+                        <!-- Block1 -->
+                        <div class="block1 wrap-pic-w">
+                            <img src="{{asset('upload_category_img').'/'.$category->image['0'] }}" alt="{{$category->name}}">
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
+                            <a href="{{route('prod')}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                <div class="block1-txt-child1 flex-col-l">
+                                    <span class="block1-name ltext-102 trans-04 p-b-8">
+                                        {{$category->name }}
+                                    </span>
 
-				<div class="col-md-6 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-05.jpg" alt="IMG-BANNER">
+                                    <span class="block1-info stext-102 trans-04">
+                                        New Trend
+                                    </span>
+                                </div>
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Men
-								</span>
+                                <div class="block1-txt-child2 p-b-4 trans-05">
+                                    <div class="block1-link stext-101 cl0 trans-09">
+                                        Shop Now
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-								<span class="block1-info stext-102 trans-04">
-									New Trend
-								</span>
-							</div>
+                @endforeach
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
+                @foreach ($types as $type)
 
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-07.jpg" alt="IMG-BANNER">
+                    <div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+                        <!-- Block1 -->
+                        <div class="block1 wrap-pic-w">
+                            <img src="{{asset('upload_type_img').'/'.$type->image['0'] }}" alt="{{$type->name}}" width="343" height="223">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Watches
-								</span>
+                            <a href="{{route('prod')}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                <div class="block1-txt-child1 flex-col-l">
+                                    <span class="block1-name ltext-102 trans-04 p-b-8">
+                                       {{$type->name}}
+                                    </span>
 
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
-								</span>
-							</div>
+                                    <span class="block1-info stext-102 trans-04">
+                                        Spring 2018
+                                    </span>
+                                </div>
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
+                                <div class="block1-txt-child2 p-b-4 trans-05">
+                                    <div class="block1-link stext-101 cl0 trans-09">
+                                        Shop Now
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-08.jpg" alt="IMG-BANNER">
-
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Bags
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-09.jpg" alt="IMG-BANNER">
-
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Accessories
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
+                @endforeach
 			</div>
 		</div>
 	</div>

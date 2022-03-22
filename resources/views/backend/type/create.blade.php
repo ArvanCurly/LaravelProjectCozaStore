@@ -6,7 +6,7 @@
         </header>
         <div class="card-content">
             <div class="content">
-                <form action="{{ route('types.store') }}" method="POST">
+                <form action="{{ route('types.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
 
@@ -18,6 +18,12 @@
                         @error('name')
                             <p class="help is-danger">{{ $message }}</p>
                         @enderror
+                    </div>
+
+                    <div  style="margin-bottom:20px;">
+                        <label class="label"> Selectionner une ou plusieurs images</label>
+                            <input name="files[]" type="file" multiple />
+
                     </div>
 
 

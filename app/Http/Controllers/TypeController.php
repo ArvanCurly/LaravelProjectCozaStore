@@ -37,8 +37,36 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        Type::create($request->all());
+        // Type::create($request->all());
+        $this->validate($request ,[
+            'file' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        $type = new Type();
+
+        if($request->hasFile('files')){
+
+           $imageNames = [];
+
+           foreach($request->file('files') as $file){
+
+               $imageName = $request->name.'-image-'.time().rand(1,1000).'.'.$file->extension();
+               $file->move(public_path('upload_type_img'), $imageName);
+               array_push($imageNames,$imageName);
+           }
+            $type->image = $imageNames;
+        }
+
+
+        $type->name = $request->name;
+        $type->slug = $request->name;
+
+        $type->save();
+
+
         return redirect()->route('types.index')->with('info', 'Le type a bien été créé');
+
+
     }
 
     /**
