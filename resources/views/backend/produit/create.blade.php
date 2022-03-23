@@ -6,7 +6,7 @@
         </header>
         <div class="card-content">
             <div class="content">
-                <form action="{{ route('produits.store') }}" method="POST" encrypt="multipart/form-data">
+                <form action="{{ route('produits.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
 
@@ -18,6 +18,17 @@
                         @error('titre')
                             <p class="help is-danger">{{ $message }}</p>
                         @enderror
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Type de produit</label>
+                        <div class="select">
+                            <select name="type_id">
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->slug }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
 
@@ -130,20 +141,12 @@
                     </div> --}}
 
 
-                    <div class="file">
-                        <label class="file-label">
-                          <input class="file-input" type="file" name="resume">
-                          <span class="file-cta">
-                            <span class="file-icon">
-                              <i class="fas fa-upload"></i>
-                            </span>
-                            <span class="file-label">
-                              Choisir une iamge
-                            </span>
-                          </span>
-                        </label>
-                      </div>
 
+                    <div  style="margin-bottom:20px;">
+                        <label class="label"> Selectionner une ou plusieurs images</label>
+                            <input name="files[]" type="file" multiple />
+
+                    </div>
 
 
                     <div class="field">

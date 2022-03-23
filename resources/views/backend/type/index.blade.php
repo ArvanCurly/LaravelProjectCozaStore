@@ -43,7 +43,7 @@ padding: 0.5em;
                         @foreach ($types as $type)
                         <tr @if($type->deleted_at) class="has-background-grey-lighter" @endif>
                                 <td>{{ $type->id }}</td>
-                                <td>{{$type->name }}</td>
+                                <td>{{$type->slug }}</td>
                                 <td>
                                     @if($type->deleted_at)
                                     <form action="{{ route('types.restore', $type->id) }}"

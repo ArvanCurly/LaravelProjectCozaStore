@@ -6,6 +6,7 @@ use App\Models\Produit;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Produit as ProduitRequest;
+use App\Models\Type;
 
 class ProduitController extends Controller
 {
@@ -31,10 +32,11 @@ class ProduitController extends Controller
      */
     public function create()
     {
+        $types = Type::all();
         $taille = array('xS','S','M','L','XL','XXL');
         $couleur = array('red','green','white','black','blue','orange','purple');
 
-        return view('backend.produit.create',compact('taille','couleur'));
+        return view('backend.produit.create',compact('taille','couleur','types'));
     }
 
     /**
@@ -48,7 +50,25 @@ class ProduitController extends Controller
 
         //Produit::create($request->all());
 
+        $this->validate($request ,[
+            'file' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
         $produit = new Produit();
+
+        if($request->hasFile('files')){
+
+           $imageNames = [];
+
+           foreach($request->file('files') as $file){
+
+               $imageName = $request->name.'-image-'.time().rand(1,1000).'.'.$file->extension();
+               $file->move(public_path('upload_produit_img'), $imageName);
+               array_push($imageNames,$imageName);
+           }
+                $produit->image = $imageNames;
+        }
+
         $produit->titre = $request->titre;
         $produit->prix = $request->prix;
         $produit->material = $request->material;
@@ -58,6 +78,7 @@ class ProduitController extends Controller
 
         $produit->taille = $request->taille;
         $produit->couleur = $request->couleur;
+        $produit->type_id = $request->type_id;
 
         $produit->save();
 

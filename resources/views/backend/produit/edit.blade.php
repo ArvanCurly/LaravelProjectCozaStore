@@ -20,6 +20,17 @@
                         @enderror
                     </div>
 
+                    <div class="field">
+                        <label class="label">Type de produit</label>
+                        <div class="select">
+                            <select name="type_id">
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
 
 
 

@@ -27,6 +27,7 @@ Route::get('/admin', function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/prod', [HomeController::class, 'prod'])->name('prod');
 
+Route::get('prod/{produit}', [HomeController::class, 'detail'])->name('detail');
 
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
@@ -36,7 +37,7 @@ Route::get('/blog', function () {return view('frontend.blog');})->name('blog');
 Route::get('/dblog', function () {return view('frontend.blog-detail');})->name('dblog');
 
 
-Route::get('/detail', function () {return view('frontend.product-detail');})->name('detail');
+
 Route::get('/about', function () {return view('frontend.about');})->name('about');
 Route::get('/shoping', function () {return view('frontend.shoping-cart');})->name('shoping');
 

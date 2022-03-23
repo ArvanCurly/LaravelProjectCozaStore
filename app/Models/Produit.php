@@ -12,7 +12,7 @@ class Produit extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $fillable = ['titre', 'taille', 'couleur', 'material','prix','dimension','poid','description','image'];
+    protected $fillable = ['titre', 'taille', 'couleur', 'material','prix','dimension','poid','description','image','type_id'];
 
     protected $casts = [
         'taille' => 'array',

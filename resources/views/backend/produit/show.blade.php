@@ -15,6 +15,7 @@
 <li>{{ $category->name }}</li>
 @endforeach
 </ul>
+<p>Types : <span>{{$produit->type->name}}</span></p>
 <hr>
 
 <p>{{ $produit->description }}</p>
